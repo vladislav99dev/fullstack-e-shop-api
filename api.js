@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const router = require("./router");
-import productsController from "./controllers/productsController";
+const productsController = require("./controllers/productsController");
 const cors = require("cors");
 const databaseConnect = require("./config/databaseConnect");
 
