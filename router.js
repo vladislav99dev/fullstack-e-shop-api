@@ -8,12 +8,10 @@ const ordersController = require("./controllers/ordersController");
 
 router.use('/users',userController)
 router.use('/admin',isAdmin,adminController)
-router.use('/products',productsController)
+router.use('/products',(req,res) => {
+    res.status(200).json({message: "You hit products controller"})
+})
 router.use('/orders',ordersController)
-
-
-
-
 
 router.all('*', (req,res) => {
     res.status(404).json({error:'This service does not exist!'})

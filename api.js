@@ -1,18 +1,17 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const router = require("./router");
-const productsController = require("./controllers/productsController");
-const cors = require("cors");
+const dotenv = require('dotenv')
+const router = require('./router')
+const cors = require('cors')
 const databaseConnect = require("./config/databaseConnect");
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
-// app.use(router);
-app.use("/products", productsController);
+app.use(router);
 dotenv.config();
+
 
 databaseConnect(process.env.DB_CONNECTION_STRING)
   .then((response) => {
