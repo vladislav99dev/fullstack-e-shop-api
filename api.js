@@ -9,10 +9,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-app.get('/',(req,res) => {
-  res.status(200).json({message:"Server"})
-})
-// app.use(router);
+app.use("/", router);
 dotenv.config();
 
 databaseConnect(process.env.DB_CONNECTION_STRING)
