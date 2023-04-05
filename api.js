@@ -9,7 +9,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-router.use("/products", (req, res) => {
+app.get("/products", (req, res) => {
   res.status(200).json({ message: "You hit products controller" });
 });
 // app.use(router);
