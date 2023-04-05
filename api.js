@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const router = require("./router");
@@ -6,10 +7,11 @@ const databaseConnect = require("./config/databaseConnect");
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-app.use("/", router);
+app.use(router);
 dotenv.config();
 
 databaseConnect(process.env.DB_CONNECTION_STRING)
