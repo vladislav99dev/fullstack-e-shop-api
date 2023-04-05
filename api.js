@@ -9,9 +9,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-app.get("/products", (req, res) => {
-  res.status(200).json({ message: "You hit products controller" });
-});
+app.get('/',(req,res) => {
+  res.status(200).json({message:"Server"})
+})
 // app.use(router);
 dotenv.config();
 
